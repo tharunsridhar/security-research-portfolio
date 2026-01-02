@@ -1,4 +1,4 @@
-## Case Study - 1 {Zero_Trust_to_Adaptive_Trust_in_Multi-Cloud_Environments.pdf}
+## Case Study - 1 [Zero_Trust_to_Adaptive_Trust_in_Multi-Cloud_Environments.pdf][Awesome README]([gers/awesome-readme](https://github.com/tharunsridhar/Case-Studies/blob/main/Zero_Trust_to_Adaptive_Trust_in_Multi-Cloud_Environments.pdf)
 Title: Zero Trust to Adaptive Trust in Multi-Cloud Environments
 
 1) Scope
@@ -16,7 +16,7 @@ Title: Zero Trust to Adaptive Trust in Multi-Cloud Environments
 - Improved resilience against advanced and insider threats
 
 
-## Case Study - 2 {Remote_Code_Execution.pdf}
+## Case Study - 2 [Remote_Code_Execution.pdf](https://github.com/tharunsridhar/Case-Studies/blob/main/Remote_Code_Execution_CVE-2025-55182.pdf)
 Title: React2Shell (CVE-2025-55182)
 
 1) Scope

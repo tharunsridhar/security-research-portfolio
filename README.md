@@ -32,3 +32,21 @@
 - Real-world exploitation including persistence and lateral movement
 - Detection using WAF rules and runtime monitoring
 - Mitigation through secure deserialization and architectural isolation
+
+ ## Case Study - 3
+ ### [Star Health Insurance Data Breach: Real-World Cybersecurity Incident Analysis](https://github.com/tharunsridhar/Case-Studies/blob/main/star_health_data_breach.pdf)
+
+1) Scope
+ - Enterprise-scale cybersecurity incident in the healthcare insurance sector
+ - API security and authorization failures in production systems
+ - Identity misuse and access control breakdown
+ - Impact on cloud-hosted enterprise environments
+ - Regulatory and legal response under Indian data protection laws
+2) Key Coverage
+ - Insecure Direct Object Reference (IDOR) vulnerability as root cause
+ - Abuse of compromised credentials for unauthorized access
+ - Large-scale sensitive data exfiltration
+ - Threat actor behavior, escalation, and data monetization
+ - Detection and monitoring failures in enterprise systems
+ - Regulatory, legal, and business impact of the breach
+ - Security lessons for healthcare and financial services organizations

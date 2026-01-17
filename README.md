@@ -1,5 +1,5 @@
 ## [Case Study - 1](https://github.com/tharunsridhar/Case-Studies/blob/main/Zero_Trust_to_Adaptive_Trust_in_Multi-Cloud_Environments.pdf)
-Title: Zero Trust to Adaptive Trust in Multi-Cloud Environments
+### Title: Zero Trust to Adaptive Trust in Multi-Cloud Environments
 
 1) Scope
 - Analysis of security architectures in multi-cloud environments
@@ -16,8 +16,8 @@ Title: Zero Trust to Adaptive Trust in Multi-Cloud Environments
 - Improved resilience against advanced and insider threats
 
 
-## Case Study - 2 [Remote_Code_Execution.pdf](https://github.com/tharunsridhar/Case-Studies/blob/main/Remote_Code_Execution_CVE-2025-55182.pdf)
-Title: React2Shell (CVE-2025-55182)
+## [Case Study - 2](https://github.com/tharunsridhar/Case-Studies/blob/main/Remote_Code_Execution_CVE-2025-55182.pdf)
+### Title: React2Shell (CVE-2025-55182)
 
 1) Scope
 - Application-layer security in React Server Components

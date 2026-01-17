@@ -1,4 +1,4 @@
-[## Case Study - 1](https://github.com/tharunsridhar/Case-Studies/blob/main/Zero_Trust_to_Adaptive_Trust_in_Multi-Cloud_Environments.pdf)
+##[Case Study - 1](https://github.com/tharunsridhar/Case-Studies/blob/main/Zero_Trust_to_Adaptive_Trust_in_Multi-Cloud_Environments.pdf)
 Title: Zero Trust to Adaptive Trust in Multi-Cloud Environments
 
 1) Scope

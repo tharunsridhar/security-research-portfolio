@@ -18,7 +18,7 @@ Focus areas:
 
 ## React2Shell — React Server Components Remote Code Execution
 
-![React2Shell Attack Flow](assets/rce-nextjs.png)
+![React2Shell Attack Flow](https://github.com/tharunsridhar/security-research-portfolio/blob/main/remote.png)
 *Diagram: Crafted Flight payload reaches the server action endpoint, triggers insecure deserialization, prototype pollution, and finally server-side command execution.*
 
 ### What happened
@@ -55,7 +55,7 @@ Focus areas:
 
 ## Star Health Insurance Breach — Broken Authorization (IDOR)
 
-![IDOR Authorization Failure](assets/idor.png)
+![IDOR Authorization Failure](https://github.com/tharunsridhar/security-research-portfolio/blob/main/unnamed.jpg)
 *Diagram: Logged-in user requests sequential user IDs; backend checks authentication but not record ownership, exposing private data.*
 
 ### What happened
@@ -89,7 +89,7 @@ Focus areas:
 
 ## Zero Trust → Adaptive Trust in Cloud Security
 
-![Adaptive Trust Model](assets/adaptive-trust.png)
+![Adaptive Trust Model](https://github.com/tharunsridhar/security-research-portfolio/blob/main/adp.jpg)
 *Diagram: After login the system monitors behavior; anomalies trigger MFA challenge and access is blocked.*
 
 ### What I studied

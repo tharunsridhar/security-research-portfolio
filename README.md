@@ -5,12 +5,12 @@ This repository contains personal case studies where I analyzed real-world vulne
 and breaches to understand how systems fail and how they can be designed more safely.
 
 These are not penetration tests or exploit reproductions.  
-They are technical analyses based on public disclosures, documentation, and security research articles.
+They are technical analyses based on public disclosures, documentation, and security research.
 
 Focus areas:
-• Web application security
-• API authorization failures
-• Cloud identity and access control
+• Web application security  
+• API authorization failures  
+• Cloud identity and access control  
 • System design weaknesses
 
 
@@ -18,82 +18,100 @@ Focus areas:
 
 ## React2Shell — React Server Components Remote Code Execution
 
+![React2Shell Attack Flow](assets/rce-nextjs.png)
+*Diagram: Crafted Flight payload reaches the server action endpoint, triggers insecure deserialization, prototype pollution, and finally server-side command execution.*
+
 ### What happened
 - A server action endpoint accepted crafted serialized data
-- The framework trusted client-controlled input
+- The framework trusted client-controlled UI state
 
 ### How the attacker succeeded
-- Deserialization logic flaw
-- Prototype pollution
-- Server-side command execution
+- Flight protocol deserialization flaw
+- Prototype pollution of object chain
+- Execution via JavaScript Function() constructor
+- Node.js child_process execution
 
 ### Impact
 - Full server compromise
-- Access to application data
+- Environment variable and database access
 - Remote command execution
 
 ### Detection signals
 - Unusual POST requests to server action endpoints
 - Unexpected child process execution
-- Outbound connections from the application server
+- Outbound traffic from application server
 
 ### Prevention
-- Validate serialized inputs
-- Restrict exposed server actions
-- Patch framework versions
-- Monitor runtime processes
+- Strict deserialization validation
+- Server action exposure restrictions
+- Framework patching
+- Runtime process monitoring
 
 **Full case study:**  
-[react2shell-rce-case-study.pdf](https://github.com/tharunsridhar/security-research-portfolio/blob/main/Remote_Code_Execution_CVE-2025-55182.pdf)
+[Remote_Code_Execution_CVE-2025-55182.pdf](https://github.com/tharunsridhar/security-research-portfolio/blob/main/Remote_Code_Execution_CVE-2025-55182.pdf)
 
 
 ---
 
-## Star Health Insurance Breach — API Authorization Failure
+## Star Health Insurance Breach — Broken Authorization (IDOR)
+
+![IDOR Authorization Failure](assets/idor.png)
+*Diagram: Logged-in user requests sequential user IDs; backend checks authentication but not record ownership, exposing private data.*
 
 ### What happened
 - Attackers obtained valid credentials
-- API endpoints allowed access to unrelated customer records
+- Backend APIs allowed access to unrelated user records
 
 ### How the attacker succeeded
-- IDOR (Insecure Direct Object Reference)
+- Insecure Direct Object Reference (IDOR)
 - Missing object-level authorization checks
-- No effective rate limiting
+- Sequential ID enumeration
 
 ### Impact
-- Large-scale personal and medical data exposure
-- Identity and financial risk to customers
+- Large-scale exposure of sensitive personal and medical data
+- Identity and financial risk to users
 
 ### Detection signals
 - Sequential API ID requests
-- High data access volume per account
-- Access to multiple unrelated user records
+- High volume data access per account
+- Access to unrelated user records
 
 ### Prevention
-- Object-level authorization checks
-- Rate limiting and monitoring
-- Credential lifecycle management
+- Record ownership verification
+- Authorization checks per request
+- Monitoring abnormal access patterns
 
 **Full case study:**  
-[star-health-breach-case-study.pdf](https://github.com/tharunsridhar/security-research-portfolio/blob/main/star_health_data_breach.pdf)
+[star_health_data_breach.pdf](https://github.com/tharunsridhar/security-research-portfolio/blob/main/star_health_data_breach.pdf)
 
 
 ---
 
-## Zero Trust → Adaptive Trust in Multi-Cloud Security
+## Zero Trust → Adaptive Trust in Cloud Security
+
+![Adaptive Trust Model](assets/adaptive-trust.png)
+*Diagram: After login the system monitors behavior; anomalies trigger MFA challenge and access is blocked.*
 
 ### What I studied
-- Identity-based access control in cloud systems
+- Identity-based security in distributed cloud systems
 - Continuous verification models
-- Behavioral risk evaluation
+- Behavioral anomaly detection
 
 ### Key observations
-- Network perimeter security is no longer sufficient
-- Identity becomes the primary security boundary
-- Continuous validation reduces lateral movement risk
+- Identity is now the primary security boundary
+- Valid credentials do not equal trusted activity
+- Continuous monitoring detects compromised sessions
+
+### Security concept
+Traditional Zero Trust:
+- Verify identity at login
+
+Adaptive Trust:
+- Continuously evaluate user behavior
+- Dynamically adjust access privileges
 
 **Full case study:**  
-[adaptive-trust-cloud-case-study.pdf](https://github.com/tharunsridhar/security-research-portfolio/blob/main/Zero_Trust_to_Adaptive_Trust_in_Multi-Cloud_Environments.pdf)
+[Zero_Trust_to_Adaptive_Trust_in_Multi-Cloud_Environments.pdf](https://github.com/tharunsridhar/security-research-portfolio/blob/main/Zero_Trust_to_Adaptive_Trust_in_Multi-Cloud_Environments.pdf)
 
 
 ---
@@ -102,7 +120,12 @@ Focus areas:
 
 From analyzing multiple incidents:
 
-• Many major breaches originate from authorization failures rather than hacking tools  
-• Trusted system features often create unintended attack surface  
-• Detection failures allow attackers to remain longer than the initial compromise  
-• Secure system design is as important as secure code
+• Major breaches often originate from authorization failures rather than advanced exploits  
+• Framework features can unintentionally create attack surface  
+• Identity compromise is now more common than system intrusion  
+• Detection failures extend attacker dwell time  
+• Secure architecture matters as much as secure code
+
+
+---
+

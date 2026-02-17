@@ -1,52 +1,108 @@
-## Case Study - 1
-### [Zero Trust to Adaptive Trust in Multi-Cloud Environments](https://github.com/tharunsridhar/Case-Studies/blob/main/Zero_Trust_to_Adaptive_Trust_in_Multi-Cloud_Environments.pdf)
+# Tharun Sridhar — Security Case Studies
 
-1) Scope
-- Analysis of security architectures in multi-cloud environments
-- Study across AWS, Azure, and Google Cloud platforms
-- Focus on identity-centric and risk-based access control models
-- Evaluation of enterprise-scale cloud security challenges
+I am a Computer Science student interested in software systems and information security.
+This repository contains personal case studies where I analyzed real-world vulnerabilities
+and breaches to understand how systems fail and how they can be designed more safely.
 
-2) Key Coverage
-- Limitations of traditional Zero Trust Architecture
-- Introduction of Adaptive Trust Architecture (ATA)
-- Continuous risk evaluation and dynamic policy enforcement
-- Behavioral analytics and anomaly detection
-- Identity orchestration across multiple cloud providers
-- Improved resilience against advanced and insider threats
+These are not penetration tests or exploit reproductions.  
+They are technical analyses based on public disclosures, documentation, and security research articles.
+
+Focus areas:
+• Web application security
+• API authorization failures
+• Cloud identity and access control
+• System design weaknesses
 
 
-## Case Study - 2
-### [React2Shell (CVE-2025-55182)](https://github.com/tharunsridhar/Case-Studies/blob/main/Remote_Code_Execution_CVE-2025-55182.pdf)
+---
 
-1) Scope
-- Application-layer security in React Server Components
-- Next.js Server Actions and backend deserialization logic
-- Analysis of framework-level trust assumptions
-- Impact on cloud-hosted production environments
+## React2Shell — React Server Components Remote Code Execution
 
-2) Key Coverage
-- Insecure deserialization and prototype pollution root cause
-- Remote Code Execution via a single unauthenticated request
-- CVSS v3.1 severity assessment (Score: 10.0)
-- Real-world exploitation including persistence and lateral movement
-- Detection using WAF rules and runtime monitoring
-- Mitigation through secure deserialization and architectural isolation
+### What happened
+- A server action endpoint accepted crafted serialized data
+- The framework trusted client-controlled input
 
- ## Case Study - 3
- ### [Star Health Insurance Data Breach: Real-World Cybersecurity Incident Analysis](https://github.com/tharunsridhar/Case-Studies/blob/main/star_health_data_breach.pdf)
+### How the attacker succeeded
+- Deserialization logic flaw
+- Prototype pollution
+- Server-side command execution
 
-1) Scope
- - Enterprise-scale cybersecurity incident in the healthcare insurance sector
- - API security and authorization failures in production systems
- - Identity misuse and access control breakdown
- - Impact on cloud-hosted enterprise environments
- - Regulatory and legal response under Indian data protection laws
-2) Key Coverage
- - Insecure Direct Object Reference (IDOR) vulnerability as root cause
- - Abuse of compromised credentials for unauthorized access
- - Large-scale sensitive data exfiltration
- - Threat actor behavior, escalation, and data monetization
- - Detection and monitoring failures in enterprise systems
- - Regulatory, legal, and business impact of the breach
- - Security lessons for healthcare and financial services organizations
+### Impact
+- Full server compromise
+- Access to application data
+- Remote command execution
+
+### Detection signals
+- Unusual POST requests to server action endpoints
+- Unexpected child process execution
+- Outbound connections from the application server
+
+### Prevention
+- Validate serialized inputs
+- Restrict exposed server actions
+- Patch framework versions
+- Monitor runtime processes
+
+**Full case study:**  
+[react2shell-rce-case-study.pdf](https://github.com/tharunsridhar/security-research-portfolio/blob/main/Remote_Code_Execution_CVE-2025-55182.pdf)
+
+
+---
+
+## Star Health Insurance Breach — API Authorization Failure
+
+### What happened
+- Attackers obtained valid credentials
+- API endpoints allowed access to unrelated customer records
+
+### How the attacker succeeded
+- IDOR (Insecure Direct Object Reference)
+- Missing object-level authorization checks
+- No effective rate limiting
+
+### Impact
+- Large-scale personal and medical data exposure
+- Identity and financial risk to customers
+
+### Detection signals
+- Sequential API ID requests
+- High data access volume per account
+- Access to multiple unrelated user records
+
+### Prevention
+- Object-level authorization checks
+- Rate limiting and monitoring
+- Credential lifecycle management
+
+**Full case study:**  
+[star-health-breach-case-study.pdf](https://github.com/tharunsridhar/security-research-portfolio/blob/main/star_health_data_breach.pdf)
+
+
+---
+
+## Zero Trust → Adaptive Trust in Multi-Cloud Security
+
+### What I studied
+- Identity-based access control in cloud systems
+- Continuous verification models
+- Behavioral risk evaluation
+
+### Key observations
+- Network perimeter security is no longer sufficient
+- Identity becomes the primary security boundary
+- Continuous validation reduces lateral movement risk
+
+**Full case study:**  
+[adaptive-trust-cloud-case-study.pdf](https://github.com/tharunsridhar/security-research-portfolio/blob/main/Zero_Trust_to_Adaptive_Trust_in_Multi-Cloud_Environments.pdf)
+
+
+---
+
+## Overall Observations
+
+From analyzing multiple incidents:
+
+• Many major breaches originate from authorization failures rather than hacking tools  
+• Trusted system features often create unintended attack surface  
+• Detection failures allow attackers to remain longer than the initial compromise  
+• Secure system design is as important as secure code

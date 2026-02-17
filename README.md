@@ -8,6 +8,7 @@ These are not penetration tests or exploit reproductions.
 They are technical analyses based on public disclosures, documentation, and security research.
 
 Focus areas:
+
 • Web application security  
 • API authorization failures  
 • Cloud identity and access control  
